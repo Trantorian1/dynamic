@@ -6,7 +6,7 @@
 #    By: emcnab <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 13:40:57 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/05 17:17:10 by marvin           ###   ########.fr        #
+#    Updated: 2023/10/05 18:23:17 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ VALGRIND = valgrind --trace-children=yes --leak-check=full --show-leak-kinds=all
 #                               COMPILATIONS VARS                              #
 # **************************************************************************** #
 
-DIR_BUILD = ./build
+DIR_BUILD = build
 DIR_OBJS = $(DIR_BUILD)/debug/objs
 DIR_DEPS = $(DIR_BUILD)/deps/test
 DIR_SRCS = ./test
 DIR_INCL = ./include
-DIR_BIN = ./bin
+DIR_BIN = bin
 
 FILES_SRCS = $(shell find ./ -wholename "$(DIR_SRCS)/*.c")
 FILES_TEST = $(patsubst $(DIR_SRCS)/%.c,$(DIR_BIN)/test/%,$(FILES_SRCS))
@@ -41,12 +41,13 @@ C_DEPS = -MM -MP $(I_FLAGS)
 
 all: $(FILES_TEST)
 
+.SECONDEXPANSION:
 
-
-$(DIR_BIN)/test/%: $(DIR_SRCS)/%.c
+$(DIR_BIN)/test/%: $(DIR_SRCS)/%.c $$(subst test_,,src/$$*.c)
 # 	displays build command
 	@printf "$(GREEN)building $(WHITE)%-30s$(RESET) $(CYAN)$(C_COMPILER) $(C_FLAGS)\n$(RESET)" "$(notdir $@)"
 # 	builds object file
+	@echo $(subst test_,,src/$*.c)
 	@mkdir -p $(@D)
 	@$(C_COMPILER) $(C_FLAGS) $(LIBS) $< -o $@
 	@export LD_LIBRARY_PATH=$(pwd)$(DIR_BIN):$(LD_LIBRARY_PATH); \
