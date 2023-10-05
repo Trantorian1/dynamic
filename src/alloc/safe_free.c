@@ -6,11 +6,13 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:06:39 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 11:12:14 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/05 14:51:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "safe_free.h"
+
+#include <stdlib.h>
 
 void	safe_free(void *_Nullable ptr)
 {
@@ -26,4 +28,6 @@ void	safe_free(void *_Nullable ptr)
 		cell->next->prev = cell->prev;
 	else
 		g_tail = cell->prev;
+
+	free(cell);
 }

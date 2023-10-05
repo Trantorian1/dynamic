@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:56:22 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 11:09:07 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/05 14:59:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "s_cell.h"
 
-static t_cell	*g_tail = NULL;
+t_cell	*g_tail = NULL;
 
 void *_Nonnull	safe_alloc(size_t bytes)
 {
@@ -28,14 +28,15 @@ void *_Nonnull	safe_alloc(size_t bytes)
 		exit(EXIT_FAILURE);
 
 	cell->bytes = bytes;
+	cell->prev = g_tail;
+	cell->next = NULL;
+
 	if (g_tail == NULL)
 		g_tail = cell;
 	else
-	{
 		g_tail->next = cell;
-		cell->prev = g_tail;
-		g_tail = cell;
-	}
+
+	g_tail = cell;
 
 	return (cell + 1);
 }
