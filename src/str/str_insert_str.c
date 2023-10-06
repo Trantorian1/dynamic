@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:21:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 13:27:26 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 12:27:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_str *_Nullable	str_insert_str(
 
 	len = cstr_len(cstr);
 	if (str_should_grow_back(str, str->len + len))
-		str_grow_back(str, str->len + len);
+		str_grow_back(str, str->_len + len);
 
 	dyn_memove(str->get + index + len, str->get + index, str->len - index + 1);
 	dyn_memcpy(str->get + index, cstr, len);
