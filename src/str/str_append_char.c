@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:46:55 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 13:03:26 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 10:11:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_str *_Nullable	str_append_char(t_str *_Nonnull str, char c)
 		return (NULL);
 
 	if (str_should_grow_back(str, str->len + 1))
-		str_grow_back(str, str->len + 1);
+		str_grow_back(str, str->_len + 1);
 
 	str->get[str->len] = c;
 	str->get[str->len + 1] = '\0';
