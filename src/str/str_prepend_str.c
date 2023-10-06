@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:10:23 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 13:13:06 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 11:01:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_str *_Nullable	str_prepend_str(t_str *_Nonnull str, t_cstr _Nonnull cstr)
 
 	len = cstr_len(cstr);
 	if (str_should_grow_front(str, str->len + len))
-		str_grow_front(str, str->len + len);
+		str_grow_front(str, str->_len + len);
 
 	dyn_memcpy(str->get - len, cstr, len);
 	str->len += len;
