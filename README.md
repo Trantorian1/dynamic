@@ -85,7 +85,7 @@ _Libdynamic_ does not come with pre-built binaries yet, so you will have to buil
      bin/libdynamic.a
      ```
 
-Make sure to link this archive using `-Lvendor/dynamic/bin -ldynamic -Ivendor/dynamic` when compiling your code.
+Make sure to link this archive using `-Lvendor/dynamic/bin -ldynamic -Ivendor` when compiling your code.
 
 - Here's a basic example of how to use _libdynamic_ in your C code:
   
