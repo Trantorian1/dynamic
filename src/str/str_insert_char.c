@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:14:50 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 13:23:21 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 12:23:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 // now)
 t_str *_Nullable	str_insert_char(t_str *_Nonnull str, char c, size_t index)
 {
-	if (str == NULL | index > str->len)
+	if (str == NULL || index > str->len)
 		return (NULL);
 
 	if (str_should_grow_back(str, str->len + 1))
-		str_grow_back(str, str->len + 1);
+		str_grow_back(str, str->_len + 1);
 
 	dyn_memove(str->get + index + 1, str->get + index, str->len - index + 1);
 	str->get[index] = c;
