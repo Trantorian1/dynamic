@@ -78,7 +78,7 @@ _Libdynamic_ does not come with pre-built binaries yet, so you will have to buil
      make final
      ```
      
-     > If this does not work, make sure you **docker installed** and the **docker engine** running as _libdynamic_ uses it to compile and run its unit tests.
+     > If this does not work, make sure you have **docker installed** and the **docker engine** running as _libdynamic_ uses it to compile and run its unit tests.
 
 3. Once all unit tests have been run, you will find the following archive:
      ```bash
