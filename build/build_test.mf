@@ -6,7 +6,7 @@
 #    By: emcnab <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 13:40:57 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/05 18:23:17 by marvin           ###   ########.fr        #
+#    Updated: 2023/10/06 09:32:22 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ LIBS = -lcriterion -L$(DIR_BIN) -ldynamic_test
 
 C_COMPILER = clang
 I_FLAGS = $(foreach dir,$(DIR_INCL),-I$(dir) )
-C_FLAGS = -Wall -Wextra -Werror $(DEBUG) $(I_FLAGS)
+C_FLAGS = -Wall -Wextra -Werror -g $(DEBUG) $(I_FLAGS)
 C_DEPS = -MM -MP $(I_FLAGS)
 
 # **************************************************************************** #
