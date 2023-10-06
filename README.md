@@ -120,11 +120,11 @@ Make sure to link this archive using `-Lvendor/dynamic/bin -ldynamic -Ivendor` w
       str_prepend_char(str, ' ');
       str_prepend_str(str, "Hey!");
     
-      // you can also access the string's value and length!
+      // of course you might want to retrieve the string's value and length
       printf("str='%s' len=%zu\n", str->get, str->len);
     
-      // remember that strings created with str_create must be destroyed with str_destroy
-      // otherwise you risk having still reachable memory
+      // remember that strings created with str_create must be destroyed with
+      // str_destroy otherwise you risk having still reachable memory
       str_destroy(str);
     
       return (0);
@@ -148,7 +148,7 @@ typedef char * t_cstr;
 ```
 
 > **Note**
-> `t_str` also has several library-reserved attributes. You can find those in `include/s_str.h`. Make sur you know what you are doing
+> `t_str` also has several library-reserved attributes. You can find those in `include/s_str.h`. Make sure you know what you are doing
 > as erroneous manipulation might break the library!
 
 ## Functions
