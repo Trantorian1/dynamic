@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:50:51 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 12:35:48 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 09:34:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_str *_Nullable	str_create(t_cstr _Nonnull cstr)
 	str->get = str->_start + pad_front;
 	str->len = len;
 
-	dyn_memcpy(str->get, cstr, len);
+	dyn_memcpy(str->get, cstr, len + 1);
 
 	return (str);
 }
