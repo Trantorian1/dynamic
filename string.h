@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:36:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 12:42:30 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 15:26:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_str *_Nullable	str_prepend_str(t_str *_Nonnull str, t_cstr _Nonnull cstr);
 t_str *_Nullable	str_insert_char(t_str *_Nonnull str, char c, size_t index);
 t_str *_Nullable	str_insert_str(t_str *_Nonnull str, t_cstr _Nonnull cstr, size_t index);
 
-t_cstr				cstr_alloc(size_t len);
+t_cstr _Nullable	cstr_alloc(size_t len);
 t_cstr _Nullable	cstr_dup(t_cstr _Nonnull cstr);
 size_t				cstr_len(t_cstr _Nonnull cstr);
 
