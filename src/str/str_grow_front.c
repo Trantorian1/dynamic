@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:28:16 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 13:00:09 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 10:53:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "closest_pow_2.h"
 #include "safe_realloc.h"
 #include "dyn_memove.h"
+#include <stdio.h>
 
 /**
  * @brief Grows a string so as to be able to append [target] bytes at the start.
@@ -37,9 +38,10 @@ void	str_grow_front(t_str *_Nonnull str, size_t target)
 
 	_len = closest_pow_2(target);
 	str->_start = safe_realloc(str->_start, _len + 1);
+	str->get = str->_start + str->_pad_front;
 	str->_len = _len;
 	str->_pad_front = str->_len - str->len - str->_pad_back;
-	str->get = str->_start + str->_pad_front;
 
-	dyn_memove(str->_start + str->_pad_front, str->get, str->len);
+	dyn_memove(str->_start + str->_pad_front, str->get, str->len + 1);
+	str->get = str->_start + str->_pad_front;
 }
