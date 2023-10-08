@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_create.c                                       :+:      :+:    :+:   */
+/*   str_find_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 11:50:51 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 16:23:05 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/06 16:39:35 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/06 16:41:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str_create.h"
+#include "str_find_char.h"
 
-#include <stdlib.h>
-
-#include "dyn_memcpy.h"
-#include "str_alloc.h"
-#include "cstr_len.h"
-
-t_str *_Nullable	str_create(t_cstr _Nonnull cstr)
+size_t	str_find_char(t_str *_Nonnull str, char c)
 {
-	t_str	*str;
-	size_t	len;
+	size_t	index;
 
-	if (cstr == NULL)
-		return (NULL);
+	if (str == NULL)
+		return (0);
 
-	len = cstr_len(cstr);
-	str = str_alloc(len);
-	str->len = len;
+	index = 0;
+	while (str->get[index] != '\0' && str->get[index] != c)
+		index++;
 
-	dyn_memcpy(str->get, cstr, len + 1);
-
-	return (str);
+	return (index);
 }

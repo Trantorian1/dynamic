@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_create.c                                       :+:      :+:    :+:   */
+/*   str_substr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 11:50:51 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 16:23:05 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/06 16:11:01 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/06 16:26:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str_create.h"
+#include "str_substr.h"
 
-#include <stdlib.h>
-
-#include "dyn_memcpy.h"
 #include "str_alloc.h"
-#include "cstr_len.h"
+#include "dyn_memcpy.h"
 
-t_str *_Nullable	str_create(t_cstr _Nonnull cstr)
+t_str *_Nullable	str_substr(t_str *_Nonnull str, size_t start, size_t stop)
 {
-	t_str	*str;
 	size_t	len;
+	t_str	*substr;
 
-	if (cstr == NULL)
+	if (str == NULL || stop > str->len || start > stop)
 		return (NULL);
 
-	len = cstr_len(cstr);
-	str = str_alloc(len);
-	str->len = len;
+	len = stop - start;
+	substr = str_alloc(len);
+	substr->len = len;
 
-	dyn_memcpy(str->get, cstr, len + 1);
+	dyn_memcpy(substr->get, str->get + start, len);
+	substr->get[len] = '\0';
 
-	return (str);
+	return (substr);
 }
