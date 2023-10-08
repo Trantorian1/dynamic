@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 12:45:04 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:27:11 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/08 15:42:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 
 void	vec_ptr_destroy(t_vptr *_Nullable vptr)
 {
-	size_t	index;
-
 	if (vptr == NULL)
 		return ;
 
