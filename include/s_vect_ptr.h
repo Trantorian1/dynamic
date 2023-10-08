@@ -6,15 +6,15 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 12:25:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:27:13 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/08 14:51:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef S_VECT_PTR_H
 # define S_VECT_PTR_H
 
-# ifndef VECT_PTR_LEN_MIN
-#  define VECT_PTR_LEN_MIN 16
+# ifndef VEC_PTR_LEN_MIN
+#  define VEC_PTR_LEN_MIN 16
 # endif
 
 # include <stddef.h>
