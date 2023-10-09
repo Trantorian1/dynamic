@@ -6,13 +6,14 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:52:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 12:14:18 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/09 13:21:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str_split.h"
 
 #include <stddef.h>
+#include <stdio.h>
 
 #include "vptr_create.h"
 #include "vptr_append.h"
@@ -37,7 +38,7 @@ t_vptr *_Nullable	str_split(t_str *_Nonnull str, t_cstr _Nonnull pattern)
 	while (i_curr < str->len)
 	{	
 		i_prev = i_curr;
-		i_curr = cstr_find_cstr(str->get + i_curr, pattern);
+		i_curr += cstr_find_cstr(str->get + i_curr, pattern);
 
 		if (i_curr != i_prev)
 			vptr_append(split, str_substr(str, i_prev, i_curr));
