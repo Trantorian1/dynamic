@@ -6,7 +6,7 @@
 #    By: emcnab <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 13:40:57 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/06 09:32:22 by marvin           ###   ########.fr        #
+#    Updated: 2023/10/09 15:27:21 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ $(DIR_BIN)/test/%: $(DIR_SRCS)/%.c $$(subst test_,,src/$$*.c)
 # 	displays build command
 	@printf "$(GREEN)building $(WHITE)%-30s$(RESET) $(CYAN)$(C_COMPILER) $(C_FLAGS)\n$(RESET)" "$(notdir $@)"
 # 	builds object file
-	@echo $(subst test_,,src/$*.c)
 	@mkdir -p $(@D)
 	@$(C_COMPILER) $(C_FLAGS) $(LIBS) $< -o $@
 	@export LD_LIBRARY_PATH=$(pwd)$(DIR_BIN):$(LD_LIBRARY_PATH); \
