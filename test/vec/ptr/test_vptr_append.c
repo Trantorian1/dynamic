@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_vec_ptr_append.c                              :+:      :+:    :+:   */
+/*   test_vptr_append.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:58:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 15:30:26 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/09 09:47:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <criterion/criterion.h>
 #include <stddef.h>
 
-#include "vec_ptr_create.h"
-#include "vec_ptr_destroy.h"
-#include "vec_ptr_append.h"
-#include "vec_ptr_get.h"
+#include "vptr_create.h"
+#include "vptr_destroy.h"
+#include "vptr_append.h"
+#include "vptr_get.h"
 #include "s_str.h"
 
 TestSuite(vec_ptr_append, .timeout = 1);
@@ -29,7 +29,7 @@ Test(vec_ptr_append, vec_ptr_append_simple)
 	size_t	pad_front_prev;
 	size_t	pad_back_prev;
 
-	vptr = vec_ptr_create(t_cstr, 4);
+	vptr = vptr_create(t_cstr, 4);
 	cr_assert_not_null(vptr);
 	cr_assert_eq(vptr->len, 0);
 
@@ -39,7 +39,7 @@ Test(vec_ptr_append, vec_ptr_append_simple)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_not_null(vec_ptr_append(vptr, input[index]));
+		cr_assert_not_null(vptr_append(vptr, input[index]));
 		index++;
 	}
 	
@@ -50,11 +50,11 @@ Test(vec_ptr_append, vec_ptr_append_simple)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_str_eq((char *)vec_ptr_get(vptr, index), input[index]);
+		cr_assert_str_eq((char *)vptr_get(vptr, index), input[index]);
 		index++;
 	}
 
-	vec_ptr_destroy(vptr);
+	vptr_destroy(vptr);
 }
 
 Test(vec_ptr_append, vec_ptr_append_force_append)
@@ -67,7 +67,7 @@ Test(vec_ptr_append, vec_ptr_append_force_append)
 	size_t	pad_front_prev;
 	size_t	index;
 
-	vptr = vec_ptr_create(t_cstr, 15);
+	vptr = vptr_create(t_cstr, 15);
 	cr_assert_not_null(vptr);
 	cr_assert_eq(vptr->len, 0);
 
@@ -75,7 +75,7 @@ Test(vec_ptr_append, vec_ptr_append_force_append)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_not_null(vec_ptr_append(vptr, input[index]));
+		cr_assert_not_null(vptr_append(vptr, input[index]));
 		index++;
 	}
 
@@ -86,11 +86,11 @@ Test(vec_ptr_append, vec_ptr_append_force_append)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_str_eq(vec_ptr_get(vptr, index), input[index]);
+		cr_assert_str_eq(vptr_get(vptr, index), input[index]);
 		index++;
 	}
 
-	vec_ptr_destroy(vptr);
+	vptr_destroy(vptr);
 }
 
 Test(vec_ptr_append, vec_ptr_append_null)
@@ -99,6 +99,6 @@ Test(vec_ptr_append, vec_ptr_append_null)
 
 	_null = NULL;
 	cr_assert_null(_null);
-	cr_assert_null(vec_ptr_append(_null, ""));
-	vec_ptr_destroy(_null);
+	cr_assert_null(vptr_append(_null, ""));
+	vptr_destroy(_null);
 }

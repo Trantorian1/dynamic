@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_ptr_grow_back.h                                :+:      :+:    :+:   */
+/*   vptr_destroy_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 14:03:00 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:20:22 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/08 16:49:27 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/09 09:35:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_PTR_GROW_BACK_H
-# define VEC_PTR_GROW_BACK_H
+#include "vptr_destroy_data.h"
 
-# include <stddef.h>
-# include "s_vect_ptr.h"
+#include <stddef.h>
 
-void	vec_ptr_grow_back(t_vptr *_Nonnull vptr, size_t target);
+#include "vptr_destroy.h"
 
-#endif
+void	vptr_destroy_data(
+	t_vptr *_Nonnull vptr,
+	void (*f)(void *_Nullable)
+) {
+	size_t	index;
+
+	if (vptr == NULL || f == NULL)
+		return ;
+
+	index = 0;
+	while (index < vptr->len)
+	{
+		f(vptr->_garbage[index]);
+		index++;
+	}
+
+	vptr_destroy(vptr);
+}

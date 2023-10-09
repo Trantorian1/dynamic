@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_ptr_destroy.h                                  :+:      :+:    :+:   */
+/*   vptr_destroy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 12:43:28 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:24:03 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/08 12:45:04 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/09 09:34:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_PTR_DESTROY_H
-# define VEC_PTR_DESTROY_H
+#include "vptr_destroy.h"
 
-# include "s_vect_ptr.h"
+#include <stdlib.h>
 
-void	vec_ptr_destroy(t_vptr *_Nullable vptr);
+#include "vptr_get.h"
+#include "safe_free.h"
 
-#endif
+void	vptr_destroy(t_vptr *_Nullable vptr)
+{
+	if (vptr == NULL)
+		return ;
+
+	safe_free(vptr->_start);
+	safe_free(vptr->_garbage);
+	vptr->_start = NULL;
+	vptr->_garbage = NULL;
+	safe_free(vptr);
+}

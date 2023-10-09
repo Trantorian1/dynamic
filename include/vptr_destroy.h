@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_ptr_create.h                                   :+:      :+:    :+:   */
+/*   vptr_destroy.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 12:29:01 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:49:49 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/08 12:43:28 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/09 09:27:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_PTR_CREATE_H
-# define VEC_PTR_CREATE_H
+#ifndef VPTR_DESTROY_H
+# define VPTR_DESTROY_H
 
-# include <stddef.h>
-# include "s_vect_ptr.h"
+# include "s_vptr.h"
 
-# define vec_ptr_create(TYPE, n) vec_ptr_create_impl(sizeof(TYPE), n)
-
-t_vptr *_Nonnull	vec_ptr_create_impl(size_t elem_size, size_t n);
+void	vptr_destroy(t_vptr *_Nullable vptr);
 
 #endif

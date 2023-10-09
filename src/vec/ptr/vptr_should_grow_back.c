@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_vect_ptr.h                                       :+:      :+:    :+:   */
+/*   vptr_should_grow_back.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 12:25:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:51:33 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/08 12:59:37 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/09 09:37:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_VECT_PTR_H
-# define S_VECT_PTR_H
+#include "vptr_should_grow_back.h"
 
-# ifndef VEC_PTR_LEN_MIN
-#  define VEC_PTR_LEN_MIN 16
-# endif
-
-# include <stddef.h>
-
-typedef struct s_vect_ptr
+bool	vptr_should_grow_back(t_vptr *vptr, size_t target)
 {
-	size_t			len;
-	void *_Nonnull	_start;
-	void *_Nonnull	_data;
-	size_t			_elem_size;
-	size_t			_len;
-	size_t			_pad_front;
-	size_t			_pad_back;
-}	t_vptr;
-
-#endif
+	return (target > vptr->len + vptr->_pad_back);
+}

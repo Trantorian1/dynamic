@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_ptr_get.c                                      :+:      :+:    :+:   */
+/*   vptr_create.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 12:52:56 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:27:11 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/08 12:29:01 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/09 09:39:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec_ptr_get.h"
+#ifndef VPTR_CREATE_H
+# define VPTR_CREATE_H
 
-void *_Nullable	vec_ptr_get(t_vptr *_Nonnull vptr, size_t index)
-{
-	if (vptr == NULL || index > vptr->len)
-		return (NULL);
+# include <stddef.h>
+# include "s_vptr.h"
 
-	return ((char *)vptr->_data + index * vptr->_elem_size);
-}
+# define vptr_create(TYPE, n) vptr_create_impl(sizeof(TYPE), n)
+
+t_vptr *_Nonnull	vptr_create_impl(size_t elem_size, size_t n);
+
+#endif

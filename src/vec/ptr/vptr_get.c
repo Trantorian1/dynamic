@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_ptr_append.h                                   :+:      :+:    :+:   */
+/*   vptr_get.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:01:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 14:07:52 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/08 12:52:56 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/09 09:47:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_PTR_APPEND_H
-# define VEC_PTR_APPEND_H
+#include "vptr_get.h"
 
-# include "s_vect_ptr.h"
+void *_Nullable	vptr_get(t_vptr *_Nonnull vptr, size_t index)
+{
+	size_t	bytes;
 
-t_vptr *_Nullable	vec_ptr_append(
-	t_vptr *_Nonnull vptr,
-	void *_Nonnull val
-);
+	if (vptr == NULL || index > vptr->len)
+		return (NULL);
 
-#endif
+	bytes = (vptr->_pad_front + index) * vptr->_elem_size;
+	return ((char *)vptr->_start + bytes);
+}
