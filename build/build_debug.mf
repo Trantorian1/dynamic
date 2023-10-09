@@ -6,7 +6,7 @@
 #    By: emcnab <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 15:27:16 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/05 17:32:06 by marvin           ###   ########.fr        #
+#    Updated: 2023/10/09 10:08:49 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ FILES_DEPS = $(patsubst $(DIR_SRCS)/%.c,$(DIR_DEPS)/%.d,$(FILES_SRCS))
 
 C_COMPILER = clang
 I_FLAGS = $(foreach dir,$(DIR_INCL),-I$(dir) )
-C_FLAGS = -Wall -Wextra -fPIC $(I_FLAGS)
+C_FLAGS = -Wall -Wextra -g -fPIC $(I_FLAGS)
 C_DEPS = -MM -MP $(I_FLAGS)
 
 BIN = $(DIR_BIN)/libdynamic_test.so
