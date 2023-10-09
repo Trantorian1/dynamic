@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:02:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 09:33:26 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/09 12:16:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 
 t_vptr *_Nullable	vptr_append(
 	t_vptr *_Nonnull vptr,
-	void *_Nonnull val
+	void *_Nullable val
 ) {
 	size_t	bytes;
 
 	if (vptr == NULL || val == NULL)
-		return (NULL);
+		return (vptr);
 
 	if (vptr_should_grow_back(vptr, vptr->len + 1))
 		vptr_grow_back(vptr, vptr->_len + 1);
@@ -35,9 +35,9 @@ t_vptr *_Nullable	vptr_append(
 		vptr_grow_garbage(vptr, vptr->_len_garbage + 1);
 
 	bytes = (vptr->_pad_front + vptr->len) * vptr->_elem_size;
-	dyn_memcpy((char *)vptr->_start + bytes, val, vptr->_elem_size);
+	dyn_memcpy((char *)vptr->_start + bytes, (void *)val, vptr->_elem_size);
 
-	vptr->_garbage[vptr->len] = val;
+	vptr->_garbage[vptr->len] = (void *)val;
 	vptr->len++;
 	vptr->_pad_back--;
 
