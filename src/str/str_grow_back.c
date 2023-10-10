@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:20:30 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 10:12:12 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 10:14:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	str_grow_back(t_str *_Nonnull str, size_t target)
 		return ;
 
 	_len = closest_pow_2(target);
-	str->_start = safe_realloc(str->_start, _len + 1);
+	str->get = safe_realloc(str->get, _len + 1);
 	str->_len = _len;
-	str->_pad_back = str->_len - str->len - str->_pad_front;
-	str->get = str->_start + str->_pad_front;
 }

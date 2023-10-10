@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:21:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 12:27:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 10:14:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include "dyn_memove.h"
 #include "dyn_memcpy.h"
 
-// TODO: split growth between front and back for insertion (this is easier for
-// now)
 t_str *_Nullable	str_insert_str(
 	t_str *_Nonnull str,
 	t_cstr _Nonnull cstr,
@@ -37,7 +35,6 @@ t_str *_Nullable	str_insert_str(
 	dyn_memove(str->get + index + len, str->get + index, str->len - index + 1);
 	dyn_memcpy(str->get + index, cstr, len);
 	str->len += len;
-	str->_pad_back -= len;
 
 	return (str);
 }

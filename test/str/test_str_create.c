@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:25:43 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 09:39:14 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 10:14:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ Test(str_create, str_create_simple)
 	cr_assert_str_eq(str->get, "Hello World");
 	cr_assert_eq(str->len, 11);
 	cr_assert_eq(str->_len, STR_LEN_MIN);
-	cr_assert_eq(str->_start, str->get - str->_pad_front);
-	cr_assert_eq(str->_pad_front, (STR_LEN_MIN - 11) / 2);
-	cr_assert_eq(str->_pad_back, STR_LEN_MIN - 11 - str->_pad_front);
-	cr_assert_eq(str->_pad_front + str->len + str->_pad_back, str->_len);
 
 	str_destroy(str);
 }
@@ -46,10 +42,6 @@ Test(str_create, str_create_empty)
 	cr_assert_str_eq(str->get, "");
 	cr_assert_eq(str->len, 0);
 	cr_assert_eq(str->_len, STR_LEN_MIN);
-	cr_assert_eq(str->_start, str->get - str->_pad_front);
-	cr_assert_eq(str->_pad_front, STR_LEN_MIN / 2);
-	cr_assert_eq(str->_pad_back, STR_LEN_MIN - str->_pad_front);
-	cr_assert_eq(str->_pad_front + str->len + str->_pad_back, str->_len);
 
 	str_destroy(str);
 }
@@ -64,10 +56,6 @@ Test(str_create, str_create_limit)
 	cr_assert_str_eq(str->get, "1234567890123456");
 	cr_assert_eq(str->len, 16);
 	cr_assert_eq(str->_len, STR_LEN_MIN * 2);
-	cr_assert_eq(str->_start, str->get - str->_pad_front);
-	cr_assert_eq(str->_pad_front, (STR_LEN_MIN * 2 - 16) / 2);
-	cr_assert_eq(str->_pad_back, STR_LEN_MIN * 2 - 16 - str->_pad_front);
-	cr_assert_eq(str->_pad_front + str->len + str->_pad_back, str->_len);
 
 	str_destroy(str);
 }

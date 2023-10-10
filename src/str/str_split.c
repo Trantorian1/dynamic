@@ -6,14 +6,13 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:52:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 13:21:09 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 10:14:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str_split.h"
 
 #include <stddef.h>
-#include <stdio.h>
 
 #include "vptr_create.h"
 #include "vptr_append.h"
