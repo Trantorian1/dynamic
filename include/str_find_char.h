@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 16:37:02 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 16:37:51 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:43:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include <stddef.h>
 # include "s_str.h"
 
-size_t	str_find_char(t_str *_Nonnull str, char c);
+size_t	str_find_char(t_str str, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:21:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 10:14:32 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:20:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@
 #include "dyn_memove.h"
 #include "dyn_memcpy.h"
 
-t_str *_Nullable	str_insert_str(
-	t_str *_Nonnull str,
-	t_cstr _Nonnull cstr,
-	size_t index
-) {
+void	str_insert_str(t_str *_Nonnull str, t_cstr _Nonnull cstr, size_t index)
+{
 	size_t	len;
 
 	if (str == NULL || cstr == NULL || index > str->len)
-		return (NULL);
+		return ;
 
 	len = cstr_len(cstr);
 	if (str_should_grow_back(str, str->len + len))
@@ -35,6 +32,4 @@ t_str *_Nullable	str_insert_str(
 	dyn_memove(str->get + index + len, str->get + index, str->len - index + 1);
 	dyn_memcpy(str->get + index, cstr, len);
 	str->len += len;
-
-	return (str);
 }

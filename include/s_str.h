@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:48:02 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 10:14:29 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:22:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct s_str
 {
 	size_t			len;
-	char *_Nonnull	get;
+	char *_Nonnull	_start;
 	size_t			_len;
 }	t_str;
 typedef char * t_cstr;
