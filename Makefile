@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 14:08:48 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/05 17:27:52 by marvin           ###   ########.fr        #
+#    Updated: 2023/10/10 09:51:15 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,11 +48,11 @@ re_debug:
 
 test: debug
 	@echo "$(BOLD)$(YELLOW)[ Building in Test Mode ]$(RESET)"
-	@$(DOCKER) make -j$(CORES) --silent --file=./build/build_test.mf
+	@$(DOCKER) make --silent --file=./build/build_test.mf
 
 test_verbose:
 	@echo "$(BOLD)$(YELLOW)[ Building in Test Mode ]$(RESET)"
-	@$(DOCKER) make -j$(CORES) --silent --file=./build/build_test.mf
+	@$(DOCKER) make --silent --file=./build/build_test.mf
 
 clean_test:
 	@echo "$(BOLD)$(YELLOW)[ Removing all Test objects ]$(RESET)"
