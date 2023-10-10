@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:58:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 09:47:15 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:30:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,10 @@ Test(vec_ptr_append, vec_ptr_append_simple)
 	t_cstr	*input = (t_cstr []) { "input1", "input2", "input3", "input4", NULL };
 	t_vptr	*vptr;
 	size_t	index;
-	size_t	pad_front_prev;
-	size_t	pad_back_prev;
 
 	vptr = vptr_create(t_cstr, 4);
 	cr_assert_not_null(vptr);
 	cr_assert_eq(vptr->len, 0);
-
-	pad_front_prev = vptr->_pad_front;
-	pad_back_prev = vptr->_pad_back;
 
 	index = 0;
 	while (input[index] != NULL)
@@ -44,8 +39,6 @@ Test(vec_ptr_append, vec_ptr_append_simple)
 	}
 	
 	cr_assert_eq(vptr->len, index);
-	cr_assert_eq(vptr->_pad_front, pad_front_prev);
-	cr_assert_eq(vptr->_pad_back, pad_back_prev - index);
 
 	index = 0;
 	while (input[index] != NULL)
@@ -64,14 +57,12 @@ Test(vec_ptr_append, vec_ptr_append_force_append)
 		"11", "12", "13", "14", "15", "16", "17", NULL
 	};
 	t_vptr	*vptr;
-	size_t	pad_front_prev;
 	size_t	index;
 
 	vptr = vptr_create(t_cstr, 15);
 	cr_assert_not_null(vptr);
 	cr_assert_eq(vptr->len, 0);
 
-	pad_front_prev = vptr->_pad_front;
 	index = 0;
 	while (input[index] != NULL)
 	{
@@ -80,7 +71,6 @@ Test(vec_ptr_append, vec_ptr_append_force_append)
 	}
 
 	cr_assert_eq(vptr->len, index);
-	cr_assert_eq(vptr->_pad_front, pad_front_prev);
 	cr_assert_eq(vptr->_len, VEC_PTR_LEN_MIN * 2);
 
 	index = 0;

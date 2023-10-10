@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:02:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 12:16:46 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:29:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,16 @@ t_vptr *_Nullable	vptr_append(
 		return (vptr);
 
 	if (vptr_should_grow_back(vptr, vptr->len + 1))
-		vptr_grow_back(vptr, vptr->_len + 1);
+		vptr_grow_back(vptr, vptr->len + 1);
 
 	if (vptr_should_grow_garbage(vptr, vptr->len + 1))
 		vptr_grow_garbage(vptr, vptr->_len_garbage + 1);
 
-	bytes = (vptr->_pad_front + vptr->len) * vptr->_elem_size;
+	bytes = vptr->len * vptr->_elem_size;
 	dyn_memcpy((char *)vptr->_start + bytes, (void *)val, vptr->_elem_size);
 
 	vptr->_garbage[vptr->len] = (void *)val;
 	vptr->len++;
-	vptr->_pad_back--;
 
 	return (vptr);
 }

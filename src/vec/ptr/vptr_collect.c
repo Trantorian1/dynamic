@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:43:05 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 15:11:24 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:27:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void *_Nonnull *_Nullable	vptr_collect(t_vptr *_Nonnull vptr)
 	index = 0;
 	while (index < vptr->len)
 	{
-		bytes = (vptr->_pad_front + index) * vptr->_elem_size;
+		bytes = index * vptr->_elem_size;
 		collect[index] = dyn_memdup(vptr->_start + bytes, vptr->_elem_size);
 		index++;
 	}

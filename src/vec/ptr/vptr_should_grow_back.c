@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 12:59:37 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 09:37:08 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:30:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 bool	vptr_should_grow_back(t_vptr *vptr, size_t target)
 {
-	return (target > vptr->len + vptr->_pad_back);
+	return (target > vptr->_len);
 }
