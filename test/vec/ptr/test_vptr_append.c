@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 14:58:19 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 12:30:47 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:22:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "vptr_destroy.h"
 #include "vptr_append.h"
 #include "vptr_get.h"
+#include "pointerof.h"
 #include "s_str.h"
 
 TestSuite(vec_ptr_append, .timeout = 1);
@@ -34,7 +35,7 @@ Test(vec_ptr_append, vec_ptr_append_simple)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_not_null(vptr_append(vptr, input[index]));
+		cr_assert_not_null(vptr_append(vptr, pointerof(t_cstr, input[index])));
 		index++;
 	}
 	
@@ -43,7 +44,7 @@ Test(vec_ptr_append, vec_ptr_append_simple)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_str_eq((char *)vptr_get(vptr, index), input[index]);
+		cr_assert_str_eq(vptr_get(t_cstr, vptr, index), input[index]);
 		index++;
 	}
 
@@ -66,7 +67,7 @@ Test(vec_ptr_append, vec_ptr_append_force_append)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_not_null(vptr_append(vptr, input[index]));
+		cr_assert_not_null(vptr_append(vptr, pointerof(t_cstr, input[index])));
 		index++;
 	}
 
@@ -76,7 +77,7 @@ Test(vec_ptr_append, vec_ptr_append_force_append)
 	index = 0;
 	while (input[index] != NULL)
 	{
-		cr_assert_str_eq(vptr_get(vptr, index), input[index]);
+		cr_assert_str_eq(vptr_get(t_cstr, vptr, index), input[index]);
 		index++;
 	}
 
