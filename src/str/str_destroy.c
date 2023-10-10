@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:15:55 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 10:14:31 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:27:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void	str_destroy(t_str *_Nullable str)
 
 	safe_free(str->get);
 	str->get = NULL;
-	safe_free(str);
+	str->len = 0;
+	str->_len = 0;
 }

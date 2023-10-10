@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:05:00 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 13:05:47 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:42:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "s_str.h"
 
-t_str *_Nullable	str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr);
+void	str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr);
 
 #endif

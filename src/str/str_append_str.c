@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:05:57 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 10:14:31 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:25:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 #include "str_grow_back.h"
 #include "dyn_memcpy.h"
 
-t_str *_Nullable	str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr)
+void	str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr)
 {
 	size_t	len;
 
 	if (str == NULL || cstr == NULL)
-		return (NULL);
+		return ;
 
 	len = cstr_len(cstr);
 	if (str_should_grow_back(str, str->len + len))
@@ -32,6 +32,4 @@ t_str *_Nullable	str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr)
 
 	dyn_memcpy(str->get + str->len, cstr, len + 1);
 	str->len += len;
-
-	return (str);
 }
