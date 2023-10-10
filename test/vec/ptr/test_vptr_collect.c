@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:48:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 10:14:21 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 10:23:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ Test(vptr_collect, vptr_collect_struct)
 	t_str	**collect;
 	size_t	index;
 	
-	vptr = vptr_create(t_cstr, 8);
+	vptr = vptr_create(t_str, 8);
 	cr_assert_not_null(vptr);
 	cr_assert_eq(vptr->len, 0);
 
