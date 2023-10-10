@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:50:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 09:59:06 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 09:33:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ bool	str_should_grow_back(t_str *_Nonnull str, size_t target)
 	if (str == NULL)
 		return (false);
 
-	return (target > str->len + str->_pad_back);
+	return (target > str->_len);
 }

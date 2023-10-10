@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:07:11 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 09:47:37 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 09:41:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ Test(vptr_destroy_data, vptr_destroy_data_simple)
 
 	cr_assert_eq(vptr->len, 8);
 
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 0))->get, "1");
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 1))->get, "2");
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 2))->get, "3");
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 3))->get, "4");
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 4))->get, "5");
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 5))->get, "6");
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 6))->get, "7");
-	cr_assert_str_eq(((t_str *)vptr_get(vptr, 7))->get, "8");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 0))->_start, "1");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 1))->_start, "2");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 2))->_start, "3");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 3))->_start, "4");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 4))->_start, "5");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 5))->_start, "6");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 6))->_start, "7");
+	cr_assert_str_eq(((t_str *)vptr_get(vptr, 7))->_start, "8");
 
 	vptr_destroy_data(vptr, &vstr_destroy);
 }
