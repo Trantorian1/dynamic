@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_append_char.c                                  :+:      :+:    :+:   */
+/*   str_append_char.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:45:46 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 12:46:43 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:42:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "s_str.h"
 
-t_str *_Nullable	str_append_char(t_str *_Nonnull str, char c);
+void	str_append_char(t_str *_Nonnull str, char c);
 
 #endif

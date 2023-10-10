@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:14:50 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 09:33:01 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:50:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "str_grow_back.h"
 #include "dyn_memove.h"
 
-t_str *_Nullable	str_insert_char(t_str *_Nonnull str, char c, size_t index)
+void	str_insert_char(t_str *_Nonnull str, char c, size_t index)
 {
 	if (str == NULL || index > str->len)
-		return (NULL);
+		return ;
 
 	if (str_should_grow_back(str, str->len + 1))
 		str_grow_back(str, str->_len + 1);
@@ -27,6 +27,4 @@ t_str *_Nullable	str_insert_char(t_str *_Nonnull str, char c, size_t index)
 	dyn_memove(str->_start + index + 1, str->_start + index, str->len - index + 1);
 	str->_start[index] = c;
 	str->len++;
-
-	return (str);
 }
