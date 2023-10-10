@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:40:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:20:20 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:30:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Test(str_append_char, str_append_char_simple)
 
 	str = str_create("Hello");
 
-	cr_assert_str_eq(str._start, "Hello");
+	cr_assert_str_eq(str.get, "Hello");
 
 	len_prev = str.len;
 
@@ -37,7 +37,7 @@ Test(str_append_char, str_append_char_simple)
 	str_append_char(&str, 'l');
 	str_append_char(&str, 'd');
 
-	cr_assert_str_eq(str._start, "Hello World");
+	cr_assert_str_eq(str.get, "Hello World");
 	cr_assert_eq(str.len, len_prev + 6);
 	cr_assert_eq(str._len, STR_LEN_MIN);
 
@@ -50,7 +50,7 @@ Test(str_append_char, str_append_char_empty)
 
 	str = str_create("");
 
-	cr_assert_str_eq(str._start, "");
+	cr_assert_str_eq(str.get, "");
 
 	str_append_char(&str, 'H');
 	str_append_char(&str, 'e');
@@ -72,7 +72,7 @@ Test(str_append_char, str_append_char_empty)
 	str_append_char(&str, ' ');
 	str_append_char(&str, '!');
 
-	cr_assert_str_eq(str._start, "Hello There World !");
+	cr_assert_str_eq(str.get, "Hello There World !");
 	cr_assert_eq(str.len, 19);
 	cr_assert_eq(str._len, STR_LEN_MIN * 2);
 
@@ -85,13 +85,13 @@ Test(str_append_char, str_append_char_force_grow)
 
 	str = str_create("123456789012345");
 
-	cr_assert_str_eq(str._start, "123456789012345");
+	cr_assert_str_eq(str.get, "123456789012345");
 	cr_assert_eq(str._len, STR_LEN_MIN);
 
 	str_append_char(&str, '6');
 	str_append_char(&str, '7');
 
-	cr_assert_str_eq(str._start, "12345678901234567");
+	cr_assert_str_eq(str.get, "12345678901234567");
 	cr_assert_eq(str.len, 17);
 	cr_assert_eq(str._len, STR_LEN_MIN * 2);
 

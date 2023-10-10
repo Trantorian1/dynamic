@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:25:43 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:20:20 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:30:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Test(str_create, str_create_simple)
 
 	str = str_create("Hello World");
 
-	cr_assert_str_eq(str._start, "Hello World");
+	cr_assert_str_eq(str.get, "Hello World");
 	cr_assert_eq(str.len, 11);
 	cr_assert_eq(str._len, STR_LEN_MIN);
 
@@ -37,7 +37,7 @@ Test(str_create, str_create_empty)
 
 	str = str_create("");
 
-	cr_assert_str_eq(str._start, "");
+	cr_assert_str_eq(str.get, "");
 	cr_assert_eq(str.len, 0);
 	cr_assert_eq(str._len, STR_LEN_MIN);
 
@@ -50,7 +50,7 @@ Test(str_create, str_create_limit)
 
 	str = str_create("1234567890123456");
 
-	cr_assert_str_eq(str._start, "1234567890123456");
+	cr_assert_str_eq(str.get, "1234567890123456");
 	cr_assert_eq(str.len, 16);
 	cr_assert_eq(str._len, STR_LEN_MIN * 2);
 
@@ -66,7 +66,7 @@ Test(str_create, str_create_null)
 	cr_assert_null(_null);
 
 	str = str_create(_null);
-	cr_assert_null(str._start);
+	cr_assert_null(str.get);
 	cr_assert_eq(str.len, 0);
 	cr_assert_eq(str._len, 0);
 

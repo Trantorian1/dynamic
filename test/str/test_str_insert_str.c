@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:24:39 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:21:49 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:30:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ Test(str_insert_str, str_insert_str_simple)
 	size_t	len_prev;
 
 	str = str_create("Wld");
-	cr_assert_str_eq(str._start, "Wld");
+	cr_assert_str_eq(str.get, "Wld");
 
 	len_prev = str._len;
 
 	str_insert_str(&str, "or", 1);
-	cr_assert_str_eq(str._start, "World");
+	cr_assert_str_eq(str.get, "World");
 	cr_assert_eq(str.len, 5);
 	cr_assert_eq(str._len, len_prev);
 
@@ -42,11 +42,11 @@ Test(str_insert_str, str_insert_str_force_grow)
 	t_str	str;
 
 	str = str_create("123456781234567");
-	cr_assert_str_eq(str._start, "123456781234567");
+	cr_assert_str_eq(str.get, "123456781234567");
 	cr_assert_eq(str._len, STR_LEN_MIN);
 
 	str_insert_str(&str, "90", 8);
-	cr_assert_str_eq(str._start, "12345678901234567");
+	cr_assert_str_eq(str.get, "12345678901234567");
 	cr_assert_eq(str._len, STR_LEN_MIN * 2);
 
 	str_destroy(&str);

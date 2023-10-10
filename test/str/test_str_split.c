@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:20:33 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 13:27:18 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:28:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ ParameterizedTest(
 	str_split,
 	str_split_test
 ) {
-	t_str	*str;
+	t_str	str;
 	t_vptr	*split;
 	size_t	index;
 	t_str	*str_curr;
@@ -111,6 +111,6 @@ ParameterizedTest(
 
 	cr_assert_eq(split->len, index);
 
-	str_destroy(str);
+	str_destroy(&str);
 	vptr_destroy_data(split, &vstr_destroy);
 }

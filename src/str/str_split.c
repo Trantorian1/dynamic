@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:52:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:20:20 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:25:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_vptr *_Nullable	str_split(t_str str, t_cstr _Nonnull pattern)
 	while (i_curr < str.len)
 	{	
 		i_prev = i_curr;
-		i_curr = cstr_find_cstr(str._start + i_curr, pattern);
+		i_curr = cstr_find_cstr(str.get + i_curr, pattern);
 
 		if (i_curr != i_prev)
 		{

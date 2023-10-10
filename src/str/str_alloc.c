@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 16:00:53 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:16:08 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 13:25:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_str	str_alloc(size_t len)
 	if (_len < STR_LEN_MIN)
 		_len = STR_LEN_MIN;
 
-	str._start = cstr_alloc(_len);
+	str.get = cstr_alloc(_len);
 	str._len = _len;
 	str.len = 0;
 
