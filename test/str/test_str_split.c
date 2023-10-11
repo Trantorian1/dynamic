@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:20:33 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:28:21 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:37:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "str_destroy.h"
 #include "str_split.h"
 #include "vptr_get.h"
-#include "vptr_destroy_data.h"
+#include "vstr_destroy.h"
 
 typedef struct s_param
 {
@@ -70,11 +70,6 @@ static t_param	g_params[] = {
 	},
 };
 
-static void	vstr_destroy(void *_Nonnull ptr)
-{
-	str_destroy(ptr);
-}
-
 TestSuite(str_split, .timeout = 1);
 
 ParameterizedTestParameters(str_split, str_split_test)
@@ -93,7 +88,7 @@ ParameterizedTest(
 	t_str	str;
 	t_vptr	*split;
 	size_t	index;
-	t_str	*str_curr;
+	t_str	str_curr;
 
 	str = str_create(param->input);
 	split = str_split(str, param->pattern);
@@ -102,9 +97,8 @@ ParameterizedTest(
 	index = 0;
 	while (param->split[index] != NULL)
 	{
-		str_curr = vptr_get(split, index);
-		cr_assert_not_null(str_curr);
-		cr_assert_str_eq(str_curr->get, param->split[index]);
+		str_curr = vptr_get(t_str, split, index);
+		cr_assert_str_eq(str_curr.get, param->split[index]);
 
 		index++;
 	}
@@ -112,5 +106,5 @@ ParameterizedTest(
 	cr_assert_eq(split->len, index);
 
 	str_destroy(&str);
-	vptr_destroy_data(split, &vstr_destroy);
+	vstr_destroy(split);
 }
