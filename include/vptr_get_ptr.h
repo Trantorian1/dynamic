@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_grow_back.c                                   :+:      :+:    :+:   */
+/*   vptr_get_ptr.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 14:04:15 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 12:28:45 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/10 16:23:22 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/10 16:24:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vptr_grow_back.h"
+#ifndef VPTR_GET_PTR_H
+# define VPTR_GET_PTR_H
 
-#include "closest_pow_2.h"
-#include "safe_realloc.h"
+# define vptr_get_ptr(type, vptr, index) \
+	(vptr != NULL && index < vptr->len ? \
+	((type *)vptr->_start) + index : NULL)
 
-void	vptr_grow_back(t_vptr *_Nonnull vptr, size_t target)
-{
-	size_t	_len;
-
-	if (vptr == NULL || target <= vptr->_len)
-		return ;
-
-	_len = closest_pow_2(target);
-	vptr->_start = safe_realloc(vptr->_start, _len * vptr->_elem_size);
-	vptr->_len = _len;
-}
+#endif

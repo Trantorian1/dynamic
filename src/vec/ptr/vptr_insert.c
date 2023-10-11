@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:04:01 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 14:35:04 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/10 12:30:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_vptr *_Nullable	vptr_insert(
 	if (vptr_should_grow_garbage(vptr, vptr->len + 1))
 		vptr_grow_garbage(vptr, vptr->_len_garbage + 1);
 
-	src = (char *)vptr->_start + (vptr->_pad_front + index) * vptr->_elem_size;
+	src = (char *)vptr->_start + index * vptr->_elem_size;
 	len = (vptr->len - index) * vptr->_elem_size;
 
 	dyn_memove(src + vptr->_elem_size, src, len);
@@ -44,7 +44,6 @@ t_vptr *_Nullable	vptr_insert(
 
 	vptr->_garbage[vptr->len] = data;
 	vptr->len++;
-	vptr->_pad_back--;
 
 	return (vptr);
 }

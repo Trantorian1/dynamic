@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_get.c                                         :+:      :+:    :+:   */
+/*   vstr_destroy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 12:52:56 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 09:47:09 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/10 14:14:22 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/10 16:24:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vptr_get.h"
+#include "vstr_destroy.h"
 
-void *_Nullable	vptr_get(t_vptr *_Nonnull vptr, size_t index)
+#include <stddef.h>
+
+#include "vptr_get_ptr.h"
+#include "vptr_destroy.h"
+#include "str_destroy.h"
+
+void	vstr_destroy(t_vptr *_Nonnull vstr)
 {
-	size_t	bytes;
+	size_t	index;
 
-	if (vptr == NULL || index > vptr->len)
-		return (NULL);
+	if (vstr == NULL)
+		return ;
 
-	bytes = (vptr->_pad_front + index) * vptr->_elem_size;
-	return ((char *)vptr->_start + bytes);
+	index = 0;
+	while (index < vstr->len)
+	{
+		str_destroy(vptr_get_ptr(t_str, vstr, index));
+		index++;
+	}
+
+	vptr_destroy(vstr);
 }

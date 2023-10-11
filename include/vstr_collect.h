@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_grow_back.c                                   :+:      :+:    :+:   */
+/*   vstr_collect.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 14:04:15 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 12:28:45 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/10 14:10:48 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/10 14:12:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vptr_grow_back.h"
+#ifndef VSTR_COLLECT_H
+# define VSTR_COLLECT_H
 
-#include "closest_pow_2.h"
-#include "safe_realloc.h"
+# include "s_vptr.h"
+# include "s_str.h"
 
-void	vptr_grow_back(t_vptr *_Nonnull vptr, size_t target)
-{
-	size_t	_len;
+t_str *_Nonnull *_Nullable	vstr_collect(t_vptr *_Nonnull vstr);
 
-	if (vptr == NULL || target <= vptr->_len)
-		return ;
-
-	_len = closest_pow_2(target);
-	vptr->_start = safe_realloc(vptr->_start, _len * vptr->_elem_size);
-	vptr->_len = _len;
-}
+#endif
