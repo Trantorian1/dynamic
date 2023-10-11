@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:02:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/11 14:53:00 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:57:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_vptr *_Nullable	vptr_append(
 		vptr_grow_back(vptr, vptr->len + 1);
 
 	bytes = vptr->len * vptr->_elem_size;
-	dyn_memcpy((char *)vptr->_start + bytes, (void *)val, vptr->_elem_size);
+	dyn_memcpy((char *)vptr->data + bytes, (void *)val, vptr->_elem_size);
 
 	vptr->len++;
 

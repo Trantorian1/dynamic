@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 12:25:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/11 14:51:48 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:57:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_vptr
 {
-	void *_Nonnull				_start;
+	void *_Nonnull				data;
 	size_t						len;
 	size_t						_len;
 	size_t						_elem_size;

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 12:28:38 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/11 14:53:57 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:57:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_vptr *_Nonnull	vptr_create_impl(size_t elem_size, size_t len)
 		_len = VEC_PTR_LEN_MIN;
 
 	vptr = safe_alloc(sizeof(*vptr));
-	vptr->_start = safe_alloc(elem_size * _len);
+	vptr->data = safe_alloc(elem_size * _len);
 	vptr->_len = _len;
 	vptr->_elem_size = elem_size;
 	

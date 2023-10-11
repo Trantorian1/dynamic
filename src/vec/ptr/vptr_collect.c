@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:43:05 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/11 14:55:18 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:57:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void *_Nullable	vptr_collect_impl(t_vptr *_Nonnull vptr)
 
 	bytes = vptr->len * vptr->_elem_size;
 	collect = safe_alloc(bytes + vptr->_elem_size);
-	dyn_memcpy(collect, vptr->_start, bytes);
+	dyn_memcpy(collect, vptr->data, bytes);
 	dyn_memset((char *)collect + bytes, 0, vptr->_elem_size);
 
 	return (collect);

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:23:22 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 16:24:15 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:58:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # define vptr_get_ptr(type, vptr, index) \
 	(vptr != NULL && index < vptr->len ? \
-	((type *)vptr->_start) + index : NULL)
+	((type *)vptr->data) + index : NULL)
 
 #endif
