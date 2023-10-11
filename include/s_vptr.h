@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 12:25:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 14:50:31 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:51:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ typedef struct s_vptr
 	size_t						len;
 	size_t						_len;
 	size_t						_elem_size;
-	void *_Nonnull *_Nonnull	_garbage;
-	size_t						_len_garbage;
 }	t_vptr;
 
 #endif

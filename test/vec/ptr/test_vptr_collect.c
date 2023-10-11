@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:48:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 17:02:35 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:54:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 #include "vptr_create.h"
 #include "vptr_destroy.h"
-#include "vptr_destroy_data.h"
 #include "vptr_append.h"
 #include "vptr_collect.h"
 #include "str_create.h"

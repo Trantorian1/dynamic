@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:04:01 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 12:30:00 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:53:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 #include "vptr_should_grow_back.h"
 #include "vptr_grow_back.h"
-#include "vptr_should_grow_garbage.h"
-#include "vptr_grow_garbage.h"
 #include "dyn_memove.h"
 #include "dyn_memcpy.h"
 
@@ -33,16 +31,12 @@ t_vptr *_Nullable	vptr_insert(
 	if (vptr_should_grow_back(vptr, vptr->len + 1))
 		vptr_grow_back(vptr, vptr->_len + 1);
 
-	if (vptr_should_grow_garbage(vptr, vptr->len + 1))
-		vptr_grow_garbage(vptr, vptr->_len_garbage + 1);
-
 	src = (char *)vptr->_start + index * vptr->_elem_size;
 	len = (vptr->len - index) * vptr->_elem_size;
 
 	dyn_memove(src + vptr->_elem_size, src, len);
 	dyn_memcpy(src, data, vptr->_elem_size);
 
-	vptr->_garbage[vptr->len] = data;
 	vptr->len++;
 
 	return (vptr);

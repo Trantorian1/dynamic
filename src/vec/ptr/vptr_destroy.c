@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 12:45:04 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 09:34:59 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/11 14:53:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	vptr_destroy(t_vptr *_Nullable vptr)
 		return ;
 
 	safe_free(vptr->_start);
-	safe_free(vptr->_garbage);
 	vptr->_start = NULL;
-	vptr->_garbage = NULL;
 	safe_free(vptr);
 }
