@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:01:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 12:08:24 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/16 07:33:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include "s_vptr.h"
 
-t_vptr *_Nullable	vptr_append(
-	t_vptr *_Nonnull vptr,
-	void *_Nullable val
-);
+t_vptr *_Nullable	vptr_append(t_vptr *_Nonnull vptr, void *_Nullable val);
 
 #endif
