@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:36:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 14:09:05 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/16 16:20:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void				str_append_char(t_str *_Nonnull str, char c);
 void				str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr);
 void				str_insert_char(t_str *_Nonnull str, char c, size_t index);
 void				str_insert_str(t_str *_Nonnull str, t_cstr _Nonnull cstr, size_t index);
+void				str_rm(t_str *_Nonnull str, size_t start, size_t stop);
 t_str				str_substr(t_str str, size_t start, size_t stop);
 size_t				str_find_char(t_str str, char c);
 t_vptr *_Nullable	str_split(t_str str, t_cstr _Nonnull pattern);
