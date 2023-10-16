@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 07:30:53 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 12:54:50 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/16 14:02:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 # define vptr_get_ptr(type, vptr, index) \
 	(vptr != NULL && index < vptr->len ? \
 	((type *)vptr->data) + index : NULL)
+# define vptr_last(type, vptr) \
+	(vptr != NULL && vptr->len != 0 ? \
+	((type *)vptr->data)[vptr->len - 1] : *(type[]) { 0 })
 
 t_vptr *_Nonnull	vptr_create_impl(size_t elem_size, size_t n);
 void				vptr_destroy(t_vptr *_Nullable vptr);
