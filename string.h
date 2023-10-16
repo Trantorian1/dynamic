@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:36:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 07:29:35 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/16 07:51:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,14 @@
 # include "struct.h"
 
 t_str 				str_alloc(size_t len);
-t_str *_Nullable	str_create(t_cstr _Nonnull cstr);
+t_str				str_create(t_cstr _Nonnull cstr);
 void				str_destroy(t_str *_Nullable str);
-t_str *_Nullable	str_append_char(t_str *_Nonnull str, char c);
-t_str *_Nullable	str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr);
-t_str *_Nullable	str_prepend_char(t_str *_Nonnull str, char c);
-t_str *_Nullable	str_prepend_str(t_str *_Nonnull str, t_cstr _Nonnull cstr);
-t_str *_Nullable	str_insert_char(t_str *_Nonnull str, char c, size_t index);
-t_str *_Nullable	str_insert_str(t_str *_Nonnull str, t_cstr _Nonnull cstr, size_t index);
-t_str *_Nullable	str_substr(t_str *_Nonnull str, size_t start, size_t stop);
-size_t				str_find_char(t_str *_Nonnull str, char c);
+void				str_append_char(t_str *_Nonnull str, char c);
+void				str_append_str(t_str *_Nonnull str, t_cstr _Nonnull cstr);
+void				str_insert_char(t_str *_Nonnull str, char c, size_t index);
+void				str_insert_str(t_str *_Nonnull str, t_cstr _Nonnull cstr, size_t index);
+t_str				str_substr(t_str str, size_t start, size_t stop);
+size_t				str_find_char(t_str str, char c);
 t_vptr *_Nullable	str_split(t_str str, t_cstr _Nonnull pattern);
 
 t_cstr _Nullable	cstr_alloc(size_t len);
