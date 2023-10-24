@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_rm.c                                          :+:      :+:    :+:   */
+/*   test_cstr_len.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:29:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/24 16:30:35 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/06 09:22:13 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/06 09:24:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vptr_rm.h"
+#include <criterion/criterion.h>
 
-#include "dyn_memove.h"
+#include "cstr_len.h"
+#include "s_str.h"
 
-t_vptr *_Nullable	vptr_rm(t_vptr *_Nonnull vptr, size_t index)
+TestSuite(cstr_len, .timeout = 1);
+
+Test(cstr_len, cstr_len_simple)
 {
-	char	*target;
-	size_t	bytes;
+	cr_assert_eq(cstr_len("Hello World"), 11);
+}
 
-	if (vptr == NULL || index >= vptr->len)
-		return (NULL);
+Test(cstr_len, cstr_len_empty)
+{
+	cr_assert_eq(cstr_len(""), 0);
+}
 
-	target = (char *)vptr->data + index * vptr->_elem_size;
-	bytes = (vptr->len - index) * vptr->_elem_size;
-	dyn_memove(target, target + vptr->_elem_size, bytes);
+Test(cstr_len, cstr_len_null)
+{
+	t_cstr	_null;
 
-	vptr->len--;
-	return (vptr);
+	_null = NULL;
+	cr_assert_null(_null);
+
+	cr_assert_eq(cstr_len(_null), 0);
 }

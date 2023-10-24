@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_rm.c                                          :+:      :+:    :+:   */
+/*   d_err.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:29:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/24 16:30:35 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/24 12:58:26 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/24 12:59:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vptr_rm.h"
+#ifndef D_ERR_H
+# define D_ERR_H
 
-#include "dyn_memove.h"
+# define ERR_NONE 2
+# define ERR_YES 1
 
-t_vptr *_Nullable	vptr_rm(t_vptr *_Nonnull vptr, size_t index)
-{
-	char	*target;
-	size_t	bytes;
-
-	if (vptr == NULL || index >= vptr->len)
-		return (NULL);
-
-	target = (char *)vptr->data + index * vptr->_elem_size;
-	bytes = (vptr->len - index) * vptr->_elem_size;
-	dyn_memove(target, target + vptr->_elem_size, bytes);
-
-	vptr->len--;
-	return (vptr);
-}
+#endif

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_rm.c                                          :+:      :+:    :+:   */
+/*   s_err.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:29:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/24 16:30:35 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/24 12:59:40 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/24 13:00:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vptr_rm.h"
+#ifndef S_ERR_H
+# define S_ERR_H
 
-#include "dyn_memove.h"
+# include <stdint.h>
 
-t_vptr *_Nullable	vptr_rm(t_vptr *_Nonnull vptr, size_t index)
+typedef struct s_err
 {
-	char	*target;
-	size_t	bytes;
+	uint8_t	err_code;
+	uint8_t	data;
+}	t_err;
 
-	if (vptr == NULL || index >= vptr->len)
-		return (NULL);
-
-	target = (char *)vptr->data + index * vptr->_elem_size;
-	bytes = (vptr->len - index) * vptr->_elem_size;
-	dyn_memove(target, target + vptr->_elem_size, bytes);
-
-	vptr->len--;
-	return (vptr);
-}
+#endif

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_rm.c                                          :+:      :+:    :+:   */
+/*   test_safe_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:29:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/24 16:30:35 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/05 15:25:55 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/05 17:19:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vptr_rm.h"
+#include <criterion/criterion.h>
 
-#include "dyn_memove.h"
+#include "safe_alloc.h"
+#include "safe_free.h"
+#include "s_str.h"
 
-t_vptr *_Nullable	vptr_rm(t_vptr *_Nonnull vptr, size_t index)
+TestSuite(safe_free, .timeout = 1);
+
+Test(safe_free, simple_free)
 {
-	char	*target;
-	size_t	bytes;
+	t_cstr	alloc1;
+	t_cstr	alloc2;
+	t_cstr	alloc3;
 
-	if (vptr == NULL || index >= vptr->len)
-		return (NULL);
+	alloc1 = safe_alloc(12);
+	alloc2 = safe_alloc(0);
+	alloc3 = safe_alloc(8);
 
-	target = (char *)vptr->data + index * vptr->_elem_size;
-	bytes = (vptr->len - index) * vptr->_elem_size;
-	dyn_memove(target, target + vptr->_elem_size, bytes);
-
-	vptr->len--;
-	return (vptr);
+	safe_free(alloc1);
+	safe_free(alloc2);
+	safe_free(alloc3);
 }
