@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_safe_free.c                                   :+:      :+:    :+:   */
+/*   str_rm.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 15:25:55 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 17:19:10 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/16 16:03:26 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/16 16:18:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <criterion/criterion.h>
+#include "str_rm.h"
 
-#include "safe_alloc.h"
-#include "safe_free.h"
-#include "s_str.h"
+#include "dyn_memove.h"
 
-TestSuite(safe_free, .timeout = 1);
-
-Test(safe_free, simple_free)
+void	str_rm(t_str *_Nonnull str, size_t start, size_t stop)
 {
-	t_cstr	alloc1;
-	t_cstr	alloc2;
-	t_cstr	alloc3;
-
-	alloc1 = safe_alloc(12);
-	alloc2 = safe_alloc(0);
-	alloc3 = safe_alloc(8);
-
-	safe_free(alloc1);
-	safe_free(alloc2);
-	safe_free(alloc3);
+	if (str == NULL || start > stop || start > str->len || start == stop)
+		return ;
+	dyn_memove(str->get + start, str->get + stop, str->len - stop + 1);
 }

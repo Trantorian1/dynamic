@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_append.h                                      :+:      :+:    :+:   */
+/*   str_contains.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:01:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 07:33:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/24 13:33:23 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/24 13:35:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VPTR_APPEND_H
-# define VPTR_APPEND_H
+#include "str_contains.h"
 
-# include "s_vptr.h"
+#include "str_find_str.h"
 
-t_vptr *_Nullable	vptr_append(t_vptr *_Nonnull vptr, void *_Nullable val);
+bool	str_contains(t_str str, t_cstr _Nonnull target)
+{
+	if (target == NULL)
+		return (false);
 
-#endif
+	return (str_find_str(str, target) != str.len);
+}

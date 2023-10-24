@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_append.h                                      :+:      :+:    :+:   */
+/*   is_whitespace.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:01:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 07:33:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/28 08:43:40 by marvin            #+#    #+#             */
+/*   Updated: 2023/08/28 08:45:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VPTR_APPEND_H
-# define VPTR_APPEND_H
+#include "is_whitespace.h"
 
-# include "s_vptr.h"
+#include <stdint.h>
 
-t_vptr *_Nullable	vptr_append(t_vptr *_Nonnull vptr, void *_Nullable val);
-
-#endif
+uint8_t	is_whitespace(char c)
+{
+	return ((c >= '\t' && c <= '\r') || c == ' ');
+}

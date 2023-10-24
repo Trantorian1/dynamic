@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vstr_collect.c                                     :+:      :+:    :+:   */
+/*   is_whitespace.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 14:11:44 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 16:51:36 by marvin           ###   ########.fr       */
+/*   Created: 2023/08/28 08:44:44 by marvin            #+#    #+#             */
+/*   Updated: 2023/08/28 08:45:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vstr_collect.h"
+#ifndef IS_WHITESPACE_H
+# define IS_WHITESPACE_H
 
-#include "vptr_collect.h"
+# include <stdint.h>
 
-t_str *_Nonnull *_Nullable	vstr_collect(t_vptr *_Nonnull vstr)
-{
-	return ((t_str **) vptr_collect_impl(vstr));
-}
+uint8_t	is_whitespace(char c);
+
+#endif //!IS_WHITESPACE_H

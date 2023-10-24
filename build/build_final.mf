@@ -6,7 +6,7 @@
 #    By: emcnab <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 15:14:44 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/05 17:30:52 by marvin           ###   ########.fr        #
+#    Updated: 2023/10/16 07:42:21 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                               COMPILATIONS VARS                              #
 # **************************************************************************** #
 
-DIR_BUILD = ./build/
+DIR_BUILD = ./build
 DIR_OBJS = $(DIR_BUILD)/objs
 DIR_DEPS = $(DIR_BUILD)/deps
 DIR_SRCS = ./src
@@ -26,7 +26,6 @@ FILES_OBJS = $(patsubst $(DIR_SRCS)/%.c,$(DIR_OBJS)/%.o,$(FILES_SRCS))
 FILES_DEPS = $(patsubst $(DIR_SRCS)/%.c,$(DIR_DEPS)/%.d,$(FILES_SRCS))
 
 OPT = -O3
-LIBS = -lreadline
 
 C_COMPILER = clang
 I_FLAGS = $(foreach dir,$(DIR_INCL),-I$(dir) )
@@ -89,11 +88,14 @@ re: fclean
 
 
 debug:
+	@echo "> src:"
 	@echo $(FILES_SRCS)
+	@echo "> obj:"
 	@echo $(FILES_OBJS)
+	@echo "> dep:"
 	@echo $(FILES_DEPS)
+	@echo "> flags:"
 	@echo $(C_FLAGS)
-	echo $(TARGET)
 
 
 
@@ -102,4 +104,4 @@ debug:
 
 
 
-.PHONY: all submodules clean fclean re debug
+.PHONY: all clean fclean re debug

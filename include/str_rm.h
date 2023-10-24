@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_append.h                                      :+:      :+:    :+:   */
+/*   str_rm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:01:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 07:33:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/10/16 16:02:28 by marvin            #+#    #+#             */
+/*   Updated: 2023/10/16 16:09:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VPTR_APPEND_H
-# define VPTR_APPEND_H
+#ifndef STR_RM_H
+# define STR_RM_H
 
-# include "s_vptr.h"
+# include <stddef.h>
+# include "s_str.h"
 
-t_vptr *_Nullable	vptr_append(t_vptr *_Nonnull vptr, void *_Nullable val);
+void	str_rm(t_str *_Nonnull str, size_t start, size_t stop);
 
 #endif

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_append.h                                      :+:      :+:    :+:   */
+/*   is_digit.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:01:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 07:33:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/09/17 05:40:02 by marvin            #+#    #+#             */
+/*   Updated: 2023/09/17 05:40:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VPTR_APPEND_H
-# define VPTR_APPEND_H
+#ifndef IS_DIGIT_H
+# define IS_DIGIT_H
 
-# include "s_vptr.h"
+# include <stdint.h>
 
-t_vptr *_Nullable	vptr_append(t_vptr *_Nonnull vptr, void *_Nullable val);
+uint8_t	is_digit(char c);
 
 #endif

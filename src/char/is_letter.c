@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_append.h                                      :+:      :+:    :+:   */
+/*   is_letter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 13:01:07 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 07:33:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/09/17 05:42:45 by marvin            #+#    #+#             */
+/*   Updated: 2023/09/17 05:44:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VPTR_APPEND_H
-# define VPTR_APPEND_H
+#include "is_letter.h"
 
-# include "s_vptr.h"
+#include <stdint.h>
 
-t_vptr *_Nullable	vptr_append(t_vptr *_Nonnull vptr, void *_Nullable val);
+#include "is_lower.h"
+#include "is_upper.h"
 
-#endif
+uint8_t	is_letter(char c)
+{
+	return (is_lower(c) || is_upper(c));
+}
