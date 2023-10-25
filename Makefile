@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 14:08:48 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/24 23:08:18 by marvin           ###   ########.fr        #
+#    Updated: 2023/10/25 16:24:28 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CORES    = $(($(nproc) + 1))
 #                               COMPILATIONS TASKS                             #
 # **************************************************************************** #
 
-all: debug
+all: final
 
 fclean: fclean_debug fclean_test fclean_final
 
