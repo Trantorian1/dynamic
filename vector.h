@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 07:30:53 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/24 23:09:19 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/25 16:16:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ t_vptr *_Nullable	vstr_append(t_vptr *_Nonnull vstr, t_str str);
 void				vstr_destroy(t_vptr *_Nonnull vstr);
 t_vptr *_Nullable	vstr_insert(t_vptr *_Nonnull vstr, t_str str, size_t index);
 t_vptr *_Nullable	vstr_rm(t_vptr *_Nonnull vstr, size_t index);
+t_vptr *_Nullable	vstr_replace(t_vptr *_Nonnull vstr, t_str str, size_t index);
 
 #endif
