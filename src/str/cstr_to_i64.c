@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 20:13:53 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/13 20:51:29 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/13 21:12:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,21 @@ static inline uint8_t	handle_negative(t_cstr _Nonnull str, int64_t *_Nonnull res
 {
 	size_t	index;
 	size_t	len_str;
+	int64_t	val;
 
-	*res = 0;
+	val = 0;
 	index = 1;
 	len_str = cstr_len(str);
 
 	while (index < len_str)
 	{
-		*res *= 10;
+		val *= 10;
 		if (!is_digit(str[index]))
 			return (EXIT_FAILURE);
-		*res -= str[index] - '0';
+		val -= str[index] - '0';
 		index++;
 	}
+	*res = val;
 
 	return (EXIT_SUCCESS);
 }
@@ -84,19 +86,21 @@ static inline uint8_t	handle_positive(t_cstr _Nonnull str, int64_t *_Nonnull res
 {
 	size_t	index;
 	size_t	len_str;
+	int64_t	val;
 
-	*res = 0;
+	val = 0;
 	index = 0;
 	len_str = cstr_len(str);
 
 	while (index < len_str)
 	{
-		*res *= 10;
+		val *= 10;
 		if (!is_digit(str[index]))
 			return (EXIT_FAILURE);
-		*res += str[index] - '0';
+		val += str[index] - '0';
 		index++;
 	}
+	*res = val;
 
 	return (EXIT_SUCCESS);
 }
