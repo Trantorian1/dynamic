@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:02:00 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/13 20:51:50 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/13 21:11:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,20 @@ static inline bool	is_in_range(t_str str, int8_t sign, t_cstr _Nonnull max)
 static inline uint8_t	handle_negative(t_str str, int64_t *_Nonnull res)
 {
 	size_t	index;
+	int64_t	val;
 
-	*res = 0;
+	val = 0;
 	index = 1;
 
 	while (index < str.len)
 	{
-		*res *= 10;
+		val *= 10;
 		if (!is_digit(str.get[index]))
 			return (EXIT_FAILURE);
-		*res -= str.get[index] - '0';
+		val -= str.get[index] - '0';
 		index++;
 	}
+	*res = val;
 
 	return (EXIT_SUCCESS);
 }
@@ -78,18 +80,20 @@ static inline uint8_t	handle_negative(t_str str, int64_t *_Nonnull res)
 static inline uint8_t	handle_positive(t_str str, int64_t *_Nonnull res)
 {
 	size_t	index;
+	int64_t	val;
 
-	*res = 0;
+	val = 0;
 	index = 0;
 
 	while (index < str.len)
 	{
-		*res *= 10;
+		val *= 10;
 		if (!is_digit(str.get[index]))
 			return (EXIT_FAILURE);
-		*res += str.get[index] - '0';
+		val += str.get[index] - '0';
 		index++;
 	}
+	*res = val;
 
 	return (EXIT_SUCCESS);
 }
