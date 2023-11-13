@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:02:00 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/13 18:19:28 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/13 20:51:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ uint8_t	str_to_i64(t_str str, int64_t *_Nonnull res)
 	if (res == NULL)
 		return (EXIT_FAILURE);
 
-	*res = 0;
 	if (str.get[0] == '-' && is_in_range(str, NEGATIVE, INT64_MIN_STR))
 		return (handle_negative(str, res));
 	else if (is_in_range(str, POSITIVE, INT64_MAX_STR))
@@ -61,6 +60,7 @@ static inline uint8_t	handle_negative(t_str str, int64_t *_Nonnull res)
 {
 	size_t	index;
 
+	*res = 0;
 	index = 1;
 
 	while (index < str.len)
@@ -79,6 +79,7 @@ static inline uint8_t	handle_positive(t_str str, int64_t *_Nonnull res)
 {
 	size_t	index;
 
+	*res = 0;
 	index = 0;
 
 	while (index < str.len)
