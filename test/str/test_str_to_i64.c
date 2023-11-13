@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:38:04 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/13 18:22:46 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/13 20:52:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ Test(str_to_i64, str_to_i64_limit)
 	cr_assert_eq(result, INT64_MIN, "got:%ld expected:%ld", result, INT64_MIN);
 
 	source = str_create("9223372036854775808");
+	result = 0;
 	err_code = str_to_i64(source, &result);
 	str_destroy(&source);
 
@@ -147,6 +148,7 @@ Test(str_to_i64, str_to_i64_limit)
 	cr_assert_eq(result, 0, "got:%ld expected:%ld", result, 0L);
 
 	source = str_create("-9223372036854775809");
+	result = 0;
 	err_code = str_to_i64(source, &result);
 	str_destroy(&source);
 
