@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:36:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/13 11:58:20 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/13 20:03:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ size_t				cstr_len(t_cstr _Nonnull cstr);
 size_t				cstr_find_cstr(t_cstr _Nonnull cstr_a, t_cstr _Nonnull cstr_b);
 bool				cstr_eq(t_cstr _Nonnull cstr_a, t_cstr _Nonnull cstr_b);
 
-t_str	ui8_to_str(uint8_t n);
+t_str				ui8_to_str(uint8_t n);
+uint8_t				str_to_i64(t_str str, int64_t *_Nonnull res);
 
 #endif
