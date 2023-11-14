@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vptr_append.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 13:02:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/11 14:57:58 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:20:00 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,10 @@ t_vptr *_Nullable	vptr_append(
 
 	if (vptr == NULL || val == NULL)
 		return (vptr);
-
 	if (vptr_should_grow_back(vptr, vptr->len + 1))
 		vptr_grow_back(vptr, vptr->len + 1);
-
 	bytes = vptr->len * vptr->_elem_size;
 	dyn_memcpy((char *)vptr->data + bytes, (void *)val, vptr->_elem_size);
-
 	vptr->len++;
-
 	return (vptr);
 }

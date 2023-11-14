@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_eq.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:06:15 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/16 14:08:14 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:05:36 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ bool	str_eq(t_str str, t_cstr _Nonnull cstr)
 
 	if (cstr == NULL)
 		return (false);
-
 	len = cstr_len(cstr);
 	if (len != str.len)
 		return (false);
-
 	return (dyn_memcmp(str.get, cstr, len) == 0);
 }

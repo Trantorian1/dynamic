@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_should_grow_back.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:50:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 09:33:38 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:04:51 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ bool	str_should_grow_back(t_str *_Nonnull str, size_t target)
 {
 	if (str == NULL)
 		return (false);
-
 	return (target > str->_len);
 }

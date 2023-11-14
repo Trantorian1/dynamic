@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vptr_rm.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:29:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/24 16:30:35 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:18:47 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ t_vptr *_Nullable	vptr_rm(t_vptr *_Nonnull vptr, size_t index)
 
 	if (vptr == NULL || index >= vptr->len)
 		return (NULL);
-
 	target = (char *)vptr->data + index * vptr->_elem_size;
 	bytes = (vptr->len - index) * vptr->_elem_size;
 	dyn_memove(target, target + vptr->_elem_size, bytes);
-
 	vptr->len--;
 	return (vptr);
 }

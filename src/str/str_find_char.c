@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_find_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 16:39:35 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:25:33 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:05:51 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ size_t	str_find_char(t_str str, char c)
 	index = 0;
 	while (str.get[index] != '\0' && str.get[index] != c)
 		index++;
-
 	return (index);
 }

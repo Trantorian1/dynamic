@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cstr_alloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:53:27 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/06 09:16:40 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 08:59:30 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ t_cstr	cstr_alloc(size_t len)
 	cstr = safe_alloc(len + 1);
 	*cstr = '\0';
 	cstr[len] = '\0';
-
 	return (cstr);
 }

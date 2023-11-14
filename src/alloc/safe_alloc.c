@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_alloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:56:22 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 14:59:55 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 08:57:25 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,13 @@ void *_Nonnull	safe_alloc(size_t bytes)
 	cell = malloc(sizeof(*cell) + bytes);
 	if (cell == NULL)
 		exit(EXIT_FAILURE);
-
 	cell->bytes = bytes;
 	cell->prev = g_tail;
 	cell->next = NULL;
-
 	if (g_tail == NULL)
 		g_tail = cell;
 	else
 		g_tail->next = cell;
-
 	g_tail = cell;
-
 	return (cell + 1);
 }

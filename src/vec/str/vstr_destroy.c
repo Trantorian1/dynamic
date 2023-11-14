@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vstr_destroy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:14:22 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 16:24:24 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:14:34 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ void	vstr_destroy(t_vptr *_Nonnull vstr)
 
 	if (vstr == NULL)
 		return ;
-
 	index = 0;
 	while (index < vstr->len)
 	{
 		str_destroy(vptr_get_ptr(t_str, vstr, index));
 		index++;
 	}
-
 	vptr_destroy(vstr);
 }
