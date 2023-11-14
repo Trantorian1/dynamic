@@ -6,7 +6,7 @@
 #    By: emcnab <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 15:14:44 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/16 07:42:21 by marvin           ###   ########.fr        #
+#    Updated: 2023/11/14 15:00:02 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OPT = -O3
 
 C_COMPILER = clang
 I_FLAGS = $(foreach dir,$(DIR_INCL),-I$(dir) )
-SILENCED = -Wno-padded -Wno-nullability-extension
+SILENCED = -Wno-padded -Wno-nullability-extension -Wno-nullability-completeness
 C_FLAGS = -Wall -Wextra -Werror -Weverything $(SILENCED) $(OPT) $(I_FLAGS)
 C_DEPS = -MM -MP $(I_FLAGS)
 
