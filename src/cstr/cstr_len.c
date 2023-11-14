@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cstr_len.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:56:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 11:57:27 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 17:27:56 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@
 
 size_t	cstr_len(t_cstr _Nonnull cstr)
 {
+	size_t	i;
+
+	i = 0;
 	if (cstr == NULL)
 		return (0);
-	return (strlen(cstr));
+	while (*cstr)
+		++i;
+	return (i);
 }
