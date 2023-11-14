@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 07:30:53 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/25 16:16:12 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 15:04:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,10 @@
 
 # include "struct.h"
 
-# define vptr_create(TYPE, n) vptr_create_impl(sizeof(TYPE), n)
-# define vptr_collect(type, vptr) ((type *) vptr_collect_impl(vptr))
-# define vptr_get(type, vptr, index) \
-	(vptr != NULL && index < vptr->len ? \
-	((type *)vptr->data)[index] : *(type[]) { 0 })
-# define vptr_get_ptr(type, vptr, index) \
-	(vptr != NULL && index < vptr->len ? \
-	((type *)vptr->data) + index : NULL)
-# define vptr_last(type, vptr) \
-	(vptr != NULL && vptr->len != 0 ? \
-	((type *)vptr->data)[vptr->len - 1] : *(type[]) { 0 })
-
+t_vptr *_Nonnull	vptr_create(size_t elem_size, size_t n);
+void *_Nullable		vptr_get(t_vptr *_Nonnull vptr, size_t index);
+void *_Nullable		vptr_last(t_vptr *_Nonnull vptr);
+void *_Nullable		vptr_collect(t_vptr *_Nonnull vptr);
 t_vptr *_Nonnull	vptr_create_impl(size_t elem_size, size_t n);
 void				vptr_destroy(t_vptr *_Nullable vptr);
 t_vptr *_Nullable	vptr_append(t_vptr *_Nonnull vptr, void *_Nullable val);
