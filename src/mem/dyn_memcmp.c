@@ -6,7 +6,7 @@
 /*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:59:29 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/14 17:19:38 by jcaron           ###   ########.fr       */
+/*   Updated: 2023/11/14 18:09:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@
 
 int32_t	dyn_memcmp(void *_Nonnull ptr_a, void *_Nonnull ptr_b, size_t bytes)
 {
-	size_t	i;
+	size_t	index;
+	int32_t	diff;
 
 	if (ptr_a == NULL || ptr_b == NULL)
-		return (0);
-	i = 0;
-	while (bytes--)
+		return (ptr_a == ptr_b);
+	index = 0;
+	diff = 0;
+	while (index < bytes)
 	{
-		if (((const int8_t *)ptr_a)[i] != ((const int8_t *)ptr_b)[i])
-			return (((const int8_t *)ptr_a)[i] - ((const int8_t *)ptr_b)[i]);
-		i++;
+		diff = ((char *)ptr_a)[index] - ((char *)ptr_b)[index];
+		if (diff != 0)
+			return (diff);
+		index++;
 	}
-	return (0);
+	return (diff);
 }

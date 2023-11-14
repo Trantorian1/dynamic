@@ -6,14 +6,13 @@
 /*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:02:17 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/14 17:25:53 by jcaron           ###   ########.fr       */
+/*   Updated: 2023/11/14 18:13:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dyn_memcpy.h"
 
 #include <string.h>
-#include <stdint.h>
 
 void *_Nullable	dyn_memcpy(void *_Nonnull dst, void *_Nonnull src, size_t n)
 {
@@ -26,7 +25,7 @@ void *_Nullable	dyn_memcpy(void *_Nonnull dst, void *_Nonnull src, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		((int8_t *)dst)[i] = ((const int8_t *)src)[i];
+		((char *)dst)[i] = ((char *)src)[i];
 		i++;
 	}
 	return (dst);
