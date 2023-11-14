@@ -6,7 +6,7 @@
 /*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:43:05 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/14 09:15:12 by jcaron           ###   ########.fr       */
+/*   Updated: 2023/11/14 14:38:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "dyn_memdup.h"
 #include "dyn_memset.h"
 
-void *_Nullable	vptr_collect_impl(t_vptr *_Nonnull vptr)
+void *_Nullable	vptr_collect(t_vptr *_Nonnull vptr)
 {
 	void	*collect;
 	size_t	bytes;

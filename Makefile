@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 14:08:48 by emcnab            #+#    #+#              #
-#    Updated: 2023/10/25 16:24:28 by marvin           ###   ########.fr        #
+#    Updated: 2023/11/14 13:40:40 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,11 @@ CORES    = $(($(nproc) + 1))
 
 all: final
 
-fclean: fclean_debug fclean_test fclean_final
+clean: clean_final
+
+fclean: fclean_final
+
+re: re_final
 
 # **************************************************************************** #
 #                                   FINAL TASK                                 #
@@ -47,7 +51,5 @@ re_final:
 
 
 
-.PHONY: all fclean                                       \
-	    debug clean_debug fclean_debug re_debug          \
-	    test test_verbose clean_test fclean_test re_test \
+.PHONY: all clean fclean re                     \
 	    final clean_final fclean_final re_final

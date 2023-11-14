@@ -6,7 +6,7 @@
 /*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:52:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/14 09:10:15 by jcaron           ###   ########.fr       */
+/*   Updated: 2023/11/14 14:55:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include "cstr_len.h"
 #include "cstr_find_cstr.h"
 #include "str_substr.h"
-#include "pointerof.h"
 
 t_vptr *_Nullable	str_split(t_str str, t_cstr _Nonnull pattern)
 {
@@ -27,18 +26,22 @@ t_vptr *_Nullable	str_split(t_str str, t_cstr _Nonnull pattern)
 	size_t	len;
 	size_t	prev;
 	size_t	curr;
+	t_str	tmp;
 
 	if (pattern == NULL)
 		return (NULL);
-	split = vptr_create(t_str, 8);
+	split = vptr_create(sizeof(t_str), 8);
 	len = cstr_len(pattern);
 	curr = 0;
 	while (curr < str.len)
-	{	
+	{
 		prev = curr;
 		curr += cstr_find_cstr(str.get + curr, pattern);
 		if (curr != prev)
-			vptr_append(split, pointerof(t_str, str_substr(str, prev, curr)));
+		{
+			tmp = str_substr(str, prev, curr);
+			vptr_append(split, &tmp);
+		}
 		curr += len;
 	}
 	return (split);

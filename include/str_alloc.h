@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 16:01:03 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 12:41:17 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 13:47:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include <stddef.h>
 # include "s_str.h"
 
-t_str str_alloc(size_t len);
+t_str	str_alloc(size_t len);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 00:40:54 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/14 09:20:42 by jcaron           ###   ########.fr       */
+/*   Updated: 2023/11/14 14:56:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_cstr _Nonnull *_Nullable	vstr_collect(t_vptr *_Nonnull vstr)
 	index = 0;
 	while (index < vstr->len)
 	{
-		collect[index] = vptr_get(t_str, vstr, index).get;
+		collect[index] = (*(t_str *)vptr_get(vstr, index)).get;
 		index++;
 	}
 	collect[index] = NULL;

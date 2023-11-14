@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vptr_get_ptr.h                                     :+:      :+:    :+:   */
+/*   vptr_first.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 16:23:22 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/11 14:58:28 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/14 14:49:23 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/14 14:51:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VPTR_GET_PTR_H
-# define VPTR_GET_PTR_H
+#include "vptr_first.h"
 
-# define vptr_get_ptr(type, vptr, index) \
-	(vptr != NULL && index < vptr->len ? \
-	((type *)vptr->data) + index : NULL)
-
-#endif
+void *_Nullable	vptr_first(t_vptr *_Nonnull vptr)
+{
+	if (vptr == NULL || vptr->len == 0)
+		return (NULL);
+	return ((char *)vptr->data);
+}

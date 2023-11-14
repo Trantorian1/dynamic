@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pointerof.h                                        :+:      :+:    :+:   */
+/*   vptr_get.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 16:18:13 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 16:18:55 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/14 14:43:04 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/14 14:47:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINTEROF_H
-# define POINTEROF_H
+#include "vptr_get.h"
 
-# define pointerof(type, x) (type []) { x }
+void *_Nullable	vptr_get(t_vptr *_Nonnull vptr, size_t index)
+{
+	size_t	bytes;
 
-#endif
+	if (vptr == NULL || index >= vptr->len)
+		return (NULL);
+	bytes = index * vptr->_elem_size;
+	return ((char *)vptr->data + bytes);
+}

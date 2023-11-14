@@ -6,12 +6,12 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:29:32 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 09:56:06 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 13:50:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CSTR_FIND_CSTR
-# define CSTR_FIND_CSTR
+#ifndef CSTR_FIND_CSTR_H
+# define CSTR_FIND_CSTR_H
 
 # include <stddef.h>
 # include "s_str.h"
