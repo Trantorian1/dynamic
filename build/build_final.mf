@@ -6,7 +6,7 @@
 #    By: emcnab <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/25 15:14:44 by emcnab            #+#    #+#              #
-#    Updated: 2023/11/14 15:00:02 by marvin           ###   ########.fr        #
+#    Updated: 2023/11/14 16:50:14 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,65 @@ DIR_SRCS = ./src
 DIR_INCL = ./include
 DIR_BIN = ./bin
 
-FILES_SRCS = $(shell find ./ -wholename "$(DIR_SRCS)/*.c")
+FILES_SRCS = \
+./src/mem/dyn_memset.c                \
+./src/mem/dyn_memcpy.c                \
+./src/mem/dyn_memdup.c                \
+./src/mem/dyn_memcmp.c                \
+./src/mem/dyn_memove.c                \
+./src/char/is_upper.c                 \
+./src/char/is_letter.c                \
+./src/char/is_whitespace.c            \
+./src/char/is_lower.c                 \
+./src/char/is_digit.c                 \
+./src/str/str_contains.c              \
+./src/str/cstr_to_i64.c               \
+./src/str/str_insert_str.c            \
+./src/str/str_destroy.c               \
+./src/str/str_should_grow_back.c      \
+./src/str/str_insert_char.c           \
+./src/str/str_grow_back.c             \
+./src/str/str_rm.c                    \
+./src/str/str_find_str.c              \
+./src/str/str_eq.c                    \
+./src/str/ui8_to_str.c                \
+./src/str/str_find_char.c             \
+./src/str/str_create.c                \
+./src/str/str_substr.c                \
+./src/str/str_alloc.c                 \
+./src/str/str_append_char.c           \
+./src/str/str_split.c                 \
+./src/str/str_append_str.c            \
+./src/str/str_to_i64.c                \
+./src/cstr/cstr_eq.c                  \
+./src/cstr/cstr_len.c                 \
+./src/cstr/cstr_find_cstr.c           \
+./src/cstr/cstr_dup.c                 \
+./src/cstr/cstr_alloc.c               \
+./src/math/closest_pow_2.c            \
+./src/vec/str/vstr_append.c           \
+./src/vec/str/vstr_rm.c               \
+./src/vec/str/vstr_collect.c          \
+./src/vec/str/vstr_destroy.c          \
+./src/vec/str/vstr_insert.c           \
+./src/vec/str/vstr_replace.c          \
+./src/vec/ptr/vptr_first.c            \
+./src/vec/ptr/vptr_collect.c          \
+./src/vec/ptr/vptr_get.c              \
+./src/vec/ptr/vptr_should_grow_back.c \
+./src/vec/ptr/vptr_destroy.c          \
+./src/vec/ptr/vptr_last.c             \
+./src/vec/ptr/vptr_grow_back.c        \
+./src/vec/ptr/vptr_create.c           \
+./src/vec/ptr/vptr_insert.c           \
+./src/vec/ptr/vptr_rm.c               \
+./src/vec/ptr/vptr_join.c             \
+./src/vec/ptr/vptr_append.c           \
+./src/alloc/safe_alloc.c              \
+./src/alloc/safe_realloc.c            \
+./src/alloc/safe_free_all.c           \
+./src/alloc/safe_free.c
+
 FILES_OBJS = $(patsubst $(DIR_SRCS)/%.c,$(DIR_OBJS)/%.o,$(FILES_SRCS))
 FILES_DEPS = $(patsubst $(DIR_SRCS)/%.c,$(DIR_DEPS)/%.d,$(FILES_SRCS))
 

@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 14:08:48 by emcnab            #+#    #+#              #
-#    Updated: 2023/11/14 13:40:40 by marvin           ###   ########.fr        #
+#    Updated: 2023/11/14 16:50:31 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ fclean_final:
 re_final:
 	@echo "$(BOLD)$(BLUE)[ Rebuilding Final binary ]$(RESET)"
 	@make fclean --silent --file=./build/build_final.mf
-	@make final
+	@make --silent final
 
 -include ./build/colors.mf
 
