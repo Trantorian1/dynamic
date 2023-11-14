@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vstr_collect.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 00:40:54 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/25 00:54:23 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:20:42 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ t_cstr _Nonnull *_Nullable	vstr_collect(t_vptr *_Nonnull vstr)
 	size_t	index;
 
 	if (vstr == NULL || vstr->len == 0)
-		return ((t_cstr []) { NULL });
-
+		return ((t_cstr[]){NULL});
 	collect = safe_alloc(sizeof(*collect) * (vstr->len + 1));
-
 	index = 0;
 	while (index < vstr->len)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 09:52:21 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/11 14:36:05 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:10:15 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,16 @@ t_vptr *_Nullable	str_split(t_str str, t_cstr _Nonnull pattern)
 
 	if (pattern == NULL)
 		return (NULL);
-
 	split = vptr_create(t_str, 8);
 	len = cstr_len(pattern);
 	curr = 0;
-
 	while (curr < str.len)
 	{	
 		prev = curr;
 		curr += cstr_find_cstr(str.get + curr, pattern);
-
 		if (curr != prev)
 			vptr_append(split, pointerof(t_str, str_substr(str, prev, curr)));
-
 		curr += len;
 	}
-
 	return (split);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_to_i64.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:02:00 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/13 21:11:51 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:10:39 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,17 @@
 
 static inline uint8_t	handle_negative(t_str str, int64_t *_Nonnull res);
 static inline uint8_t	handle_positive(t_str str, int64_t *_Nonnull res);
-static inline bool		is_in_range(t_str str, int8_t sign, t_cstr _Nonnull max);
+static inline bool	is_in_range(t_str str, int8_t sign, t_cstr _Nonnull \
+						max);
 
 uint8_t	str_to_i64(t_str str, int64_t *_Nonnull res)
 {
 	if (res == NULL)
 		return (EXIT_FAILURE);
-
 	if (str.get[0] == '-' && is_in_range(str, NEGATIVE, INT64_MIN_STR))
 		return (handle_negative(str, res));
 	else if (is_in_range(str, POSITIVE, INT64_MAX_STR))
 		return (handle_positive(str, res));
-
 	return (EXIT_FAILURE);
 }
 
@@ -63,7 +62,6 @@ static inline uint8_t	handle_negative(t_str str, int64_t *_Nonnull res)
 
 	val = 0;
 	index = 1;
-
 	while (index < str.len)
 	{
 		val *= 10;
@@ -73,7 +71,6 @@ static inline uint8_t	handle_negative(t_str str, int64_t *_Nonnull res)
 		index++;
 	}
 	*res = val;
-
 	return (EXIT_SUCCESS);
 }
 
@@ -84,7 +81,6 @@ static inline uint8_t	handle_positive(t_str str, int64_t *_Nonnull res)
 
 	val = 0;
 	index = 0;
-
 	while (index < str.len)
 	{
 		val *= 10;
@@ -94,6 +90,5 @@ static inline uint8_t	handle_positive(t_str str, int64_t *_Nonnull res)
 		index++;
 	}
 	*res = val;
-
 	return (EXIT_SUCCESS);
 }

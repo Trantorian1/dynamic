@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_grow_back.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:20:30 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/10 13:25:33 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:05:10 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	str_grow_back(t_str *_Nonnull str, size_t target)
 
 	if (str == NULL || target <= str->_len)
 		return ;
-
 	_len = closest_pow_2(target);
 	str->get = safe_realloc(str->get, _len + 1);
 	str->_len = _len;

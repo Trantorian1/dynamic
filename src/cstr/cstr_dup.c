@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cstr_dup.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:05:52 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/05 12:08:49 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 08:59:18 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ t_cstr	_Nullable	cstr_dup(t_cstr _Nonnull cstr)
 
 	if (cstr == NULL)
 		return (NULL);
-
 	len = cstr_len(cstr);
 	dup = cstr_alloc(len);
-
-	return(dyn_memcpy(dup, cstr, len));
+	return (dyn_memcpy(dup, cstr, len));
 }

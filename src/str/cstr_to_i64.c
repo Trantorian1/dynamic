@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cstr_to_i64.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jcaron <jcaron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 20:13:53 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/13 21:12:45 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/14 09:04:14 by jcaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,26 @@
 #define NEGATIVE 1
 #define POSITIVE 0
 
-static inline uint8_t	handle_negative(t_cstr _Nonnull str, int64_t *_Nonnull res);
-static inline uint8_t	handle_positive(t_cstr _Nonnull str, int64_t *_Nonnull res);
-static inline bool		is_in_range(t_cstr _Nonnull str, int8_t sign, t_cstr _Nonnull max);
+static inline uint8_t	handle_negative(t_cstr _Nonnull str, \
+						int64_t *_Nonnull res);
+static inline uint8_t	handle_positive(t_cstr _Nonnull str, int64_t \
+						*_Nonnull res);
+static inline bool	is_in_range(t_cstr _Nonnull str, int8_t sign, \
+					t_cstr _Nonnull max);
 
 uint8_t	cstr_to_i64(t_cstr _Nonnull str, int64_t *_Nonnull res)
 {
 	if (res == NULL)
 		return (EXIT_FAILURE);
-
 	if (str[0] == '-' && is_in_range(str, NEGATIVE, INT64_MIN_STR))
 		return (handle_negative(str, res));
 	else if (is_in_range(str, POSITIVE, INT64_MAX_STR))
 		return (handle_positive(str, res));
-
 	return (EXIT_FAILURE);
 }
 
-static inline bool	is_in_range(t_cstr _Nonnull str, int8_t sign, t_cstr _Nonnull max)
+static inline bool	is_in_range(t_cstr _Nonnull str, int8_t sign, \
+					t_cstr _Nonnull max)
 {
 	size_t	len_str;
 	size_t	len_max;
@@ -59,7 +61,8 @@ static inline bool	is_in_range(t_cstr _Nonnull str, int8_t sign, t_cstr _Nonnull
 		return (dyn_memcmp(max, str + sign, 19) >= 0);
 }
 
-static inline uint8_t	handle_negative(t_cstr _Nonnull str, int64_t *_Nonnull res)
+static inline uint8_t	handle_negative(t_cstr _Nonnull str, \
+						int64_t *_Nonnull res)
 {
 	size_t	index;
 	size_t	len_str;
@@ -68,7 +71,6 @@ static inline uint8_t	handle_negative(t_cstr _Nonnull str, int64_t *_Nonnull res
 	val = 0;
 	index = 1;
 	len_str = cstr_len(str);
-
 	while (index < len_str)
 	{
 		val *= 10;
@@ -78,11 +80,11 @@ static inline uint8_t	handle_negative(t_cstr _Nonnull str, int64_t *_Nonnull res
 		index++;
 	}
 	*res = val;
-
 	return (EXIT_SUCCESS);
 }
 
-static inline uint8_t	handle_positive(t_cstr _Nonnull str, int64_t *_Nonnull res)
+static inline uint8_t	handle_positive(t_cstr _Nonnull str, \
+						int64_t *_Nonnull res)
 {
 	size_t	index;
 	size_t	len_str;
@@ -91,7 +93,6 @@ static inline uint8_t	handle_positive(t_cstr _Nonnull str, int64_t *_Nonnull res
 	val = 0;
 	index = 0;
 	len_str = cstr_len(str);
-
 	while (index < len_str)
 	{
 		val *= 10;
@@ -101,6 +102,5 @@ static inline uint8_t	handle_positive(t_cstr _Nonnull str, int64_t *_Nonnull res
 		index++;
 	}
 	*res = val;
-
 	return (EXIT_SUCCESS);
 }
